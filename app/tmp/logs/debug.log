@@ -4,3 +4,5 @@
 2010-05-11 13:07:30 Notice: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [/var/www/cakephp/cake/libs/debugger.php, line 688]
 2010-05-11 14:33:39 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [/var/www/cakephp/cake/libs/debugger.php, line 684]
 2010-05-11 14:33:39 Notice: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [/var/www/cakephp/cake/libs/debugger.php, line 688]
+2010-05-22 12:29:07 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [/var/www/aircon_time/cake/libs/debugger.php, line 684]
+2010-05-22 12:29:07 Notice: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [/var/www/aircon_time/cake/libs/debugger.php, line 688]
