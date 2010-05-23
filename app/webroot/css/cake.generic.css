@@ -346,6 +346,44 @@ div.message {
 	background: #c73e14;
 	padding: 5px;
 }
+#general {
+    margin-top: 3em;
+}
+/* Custom message */
+div.general-header {
+    clear: both;
+    color: #556270;
+    font-size : 140%;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+div.message-blue {
+	clear: both;
+	color: #fff;
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #136A74;
+	padding: 5px;
+}
+div.message-red {
+	clear: both;
+	color: #fff;
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #fc0f3e;
+	padding: 5px;
+}
+div.message-green {
+	clear: both;
+	color: #fff;
+	font-size: 120%;
+	font-weight: bold;
+	margin: 0 0 1em 0;
+	background: #7fff24;
+	padding: 5px;
+}
 div.error-message {
 	clear: both;
 	color: #fff;
