@@ -23,7 +23,7 @@ class CsvHandlerComponent extends Object {
      * @param $delimiter
      * @param $callback_function
      */
-    function import($path, $delimiter, $callback_function, $context) {
+    function import($path, $delimiter, $callback_function, $args) {
         $row = 1;
         $header = array();
         // open csv file in read only mode
@@ -35,7 +35,12 @@ class CsvHandlerComponent extends Object {
                 } else {
                     $combined = $this->mergeHeaderAndData($header, $data);
                     // only start callback on non-header row
-                    call_user_func($callback_function, $combined, $context);
+                    try {
+                        call_user_func_array($callback_function, array($combined, $args));
+                    } catch (Exception $e) {
+                        $this->controller->Session->setFlash($e->getMessage());
+                        return false;
+                    }
                 }
                 $row++;
                 // merge $header and $data to get sensible data

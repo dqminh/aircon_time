@@ -1,5 +1,6 @@
+<div class="form">
 <div class="general-header">
-Total Hour Billable from <?php echo $startDate; ?> to <?php echo $endDate; ?>
+Total Minutes Billable from <?php echo $startDate; ?> to <?php echo $endDate; ?>
 </div>
 <div class="message-blue">
 Frog - Bich 
@@ -19,4 +20,10 @@ Duy - Tu
 + Double: <?php echo $report['3']['double']; ?> 
 + Triple: <?php echo $report['3']['triple']; ?>
 </div>
-
+</div>
+<div class="actions">
+	<h3><?php __('Actions'); ?></h3>
+    <ul>
+        <li><?php echo $this->Html->link('General', array('controller' => 'aircons', 'action' => 'general')); ?> </li>
+    </ul>
+</div>

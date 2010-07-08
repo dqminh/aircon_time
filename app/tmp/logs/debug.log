@@ -7,3 +7,55 @@
 2010-05-22 12:29:07 Notice: Notice (1024): Please change the value of 'Security.salt' in app/config/core.php to a salt value specific to your application in [/var/www/aircon_time/cake/libs/debugger.php, line 684]
 2010-05-22 12:29:07 Notice: Notice (1024): Please change the value of 'Security.cipherSeed' in app/config/core.php to a numeric (digits only) seed value specific to your application in [/var/www/aircon_time/cake/libs/debugger.php, line 688]
 2010-05-22 21:09:46 Notice: Notice (8): Undefined index: hour in [/var/www/aircon_time/app/controllers/aircons_controller.php, line 31]
+2010-05-28 13:32:18 Debug: 
+AirconsController::import() - APP/controllers/aircons_controller.php, line 71
+Dispatcher::_invoke() - CORE/cake/dispatcher.php, line 204
+Dispatcher::dispatch() - CORE/cake/dispatcher.php, line 171
+[main] - APP/webroot/index.php, line 83
+""
+2010-05-28 13:32:41 Debug: 
+AirconsController::import() - APP/controllers/aircons_controller.php, line 71
+Dispatcher::_invoke() - CORE/cake/dispatcher.php, line 204
+Dispatcher::dispatch() - CORE/cake/dispatcher.php, line 171
+[main] - APP/webroot/index.php, line 83
+""
+2010-05-28 13:32:48 Debug: 
+AirconsController::import() - APP/controllers/aircons_controller.php, line 71
+Dispatcher::_invoke() - CORE/cake/dispatcher.php, line 204
+Dispatcher::dispatch() - CORE/cake/dispatcher.php, line 171
+[main] - APP/webroot/index.php, line 83
+""
+2010-05-28 13:36:52 Notice: Notice (8): Undefined variable: args in [/var/www/aircon_time/app/controllers/components/csv_handler.php, line 38]
+2010-05-28 15:33:47 Debug: 
+AirconsController::viewReport() - APP/controllers/aircons_controller.php, line 44
+Dispatcher::_invoke() - CORE/cake/dispatcher.php, line 204
+Dispatcher::dispatch() - CORE/cake/dispatcher.php, line 171
+[main] - APP/webroot/index.php, line 83
+array(
+	array(),
+	array(),
+	array()
+)
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: startDate in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 2]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: endDate in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 2]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 6]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 7]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 8]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 12]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 13]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 14]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 18]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 19]
+2010-05-28 16:01:26 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 20]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: startDate in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 2]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: endDate in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 2]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 6]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 7]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 8]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 12]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 13]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 14]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 18]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 19]
+2010-05-28 16:01:56 Notice: Notice (8): Undefined variable: report in [/var/www/aircon_time/app/views/aircons/view_report.ctp, line 20]
+2010-05-28 16:14:10 Notice: Notice (8): Undefined variable: strtotime in [/var/www/aircon_time/app/controllers/aircons_controller.php, line 94]

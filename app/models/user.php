@@ -61,6 +61,7 @@ class User extends AppModel {
             $summary = $this->__processOneDayEntries($oneDayArray);
             $this->__mergeSummary($totalSummary, $summary);
         }
+
         $this->beautifyResult($totalSummary);
         return $totalSummary;
     }
@@ -126,7 +127,7 @@ class User extends AppModel {
     function beautifyResult(&$totalSummary) {
         foreach ($totalSummary as $i => &$room) {
             foreach ($room as $j => $value) {
-                $room[$j] = ceil($value/3600);
+                $room[$j] = ceil($value/60);
             }
         }
     }

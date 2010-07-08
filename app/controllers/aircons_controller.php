@@ -2,9 +2,15 @@
 class AirconsController extends AppController {
 	var $name = 'Aircons';
     var $uses = array('Aircon', 'User');
-    var $component = array('CsvHandler');
+    var $helpers = array('Html', 'Form', 'FileUpload.FileUpload');
+    var $components = array('CsvHandler', 'FileUpload.FileUpload');
 
     function beforeFilter() {
+        parent::beforeFilter();
+        // only allow to upload Csv file
+        $this->FileUpload->allowedTypes(array('text/csv'));
+        $this->FileUpload->uploadDir('files');
+        $this->FileUpload->fileModel(null);
     }
 
     function select() {
@@ -20,6 +26,8 @@ class AirconsController extends AppController {
         }
     }
 
+    // display the view to select start and end date.
+    // These dates will be transfered to viewReport
     function report() {
     }
 
@@ -30,13 +38,19 @@ class AirconsController extends AppController {
             $endDate = $this->data['Aircon']['end_time'];
             $startDate = mktime(0,0,0,$startDate['month'], $startDate['day'], $startDate['year']);
             $endDate = mktime(0,0,0,$endDate['month'], $endDate['day'], $endDate['year']);
-            $startDate = date('Y-m-d H:i:s', $startDate);
-            $endDate = date('Y-m-d H:i:s', $endDate);
-            $usage = $this->User->find('usage', array('start' => $startDate, 'end' => $endDate));
-            $report = $this->User->generateReport($usage);
-            $this->set('startDate', $startDate);
-            $this->set('endDate', $endDate);
-            $this->set('report', $report);
+            if ($startDate > $endDate) {
+                $this->Session->setFlash("Start Date must be before End Date");
+                $this->redirect("/aircons/report");
+            } else {
+                $startDate = date('Y-m-d H:i:s', $startDate);
+                $endDate = date('Y-m-d H:i:s', $endDate);
+
+                $usage = $this->User->find('usage', array('start' => $startDate, 'end' => $endDate));
+                $report = $this->User->generateReport($usage);
+                $this->set('startDate', $startDate);
+                $this->set('endDate', $endDate);
+                $this->set('report', $report);
+            }
         }
     }
 
@@ -46,7 +60,56 @@ class AirconsController extends AppController {
     }
 
     function import() {
-        // TODO: add support for generated data from Google Docs
+        if ($this->data) {
+            if ($this->FileUpload->success) {
+                try {
+                    $uploaded = WWW_ROOT.'files'.DS.$this->FileUpload->finalFile;
+                    if ($this->CsvHandler->import($uploaded, ",",
+                        array('AirconsController', 'processImportedData'),
+                        array('context' => $this)
+                    )) {
+                        // finish processing data
+                        $this->Session->setFlash(__("Import Successful"));
+                        $this->redirect("/aircons/general");
+                    }
+                } catch (Exception $e) {
+                    $this->Session->setFlash($e->getMessage());
+                }
+            } else {
+                $this->Session->setFlash($this->FileUpload->showErrors());
+            }
+        }
+    }
+
+    function processImportedData($aircon, $args) {
+        $context = $args['context'];
+        $date = $aircon['Date'];
+        $startTime = $aircon['Start Time'];
+        $endTime = $aircon['End Time'];
+        $userId = $aircon['User'];
+
+        $start = $context->__combineDateAndTime($date, $startTime);
+        $end = $context->__combineDateAndTime($date, $endTime);
+
+        if (strtotime($start) > strtotime($end)) {
+            throw new Exception(" Start Time is larger than End time. 
+                Please check the CSV at ". $date. " from: ". $startTime ." to: ".$endTime);
+        }
+        $saveData = array(
+            'Aircon' => array(
+                'start_time' => $start,
+                'end_time' => $end,
+                'user_id' => $userId
+            )
+        );
+
+        $context->Aircon->create();
+        $context->Aircon->save($saveData, false);
+    }
+
+    function __combineDateAndTime($date, $time) {
+        $dateTime = strtotime($date.' '.$time);
+        return strftime('%F %T', $dateTime);
     }
 
     function add() {

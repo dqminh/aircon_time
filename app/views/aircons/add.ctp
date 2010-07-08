@@ -16,5 +16,6 @@
 	<ul>
 		<li><?php echo $this->Html->link('View Report', array('controller' => 'aircons', 'action' => 'report')); ?> </li>
 		<li><?php echo $this->Html->link('General', array('controller' => 'aircons', 'action' => 'general')); ?> </li>
+		<li><?php echo $this->Html->link('Import Entries', array('controller' => 'aircons', 'action' => 'import')); ?> </li>
 	</ul>
 </div>

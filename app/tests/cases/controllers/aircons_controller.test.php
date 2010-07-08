@@ -65,5 +65,11 @@ class AirconsControllerTestCase extends CakeTestCase {
         $this->assertTrue(is_array($viewVars['aircons']));
     }
 
+    function testUploadCsv() {
+    }
+
+    function testImportFromCsv() {
+    }
+
 }
 ?>
